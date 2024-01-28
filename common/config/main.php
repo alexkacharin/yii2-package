@@ -11,6 +11,7 @@ return [
         ],
 
     ],
+    'language' => 'ru-RU',
     'modules' => [
         'user' => [
             'class' => Da\User\Module::class,

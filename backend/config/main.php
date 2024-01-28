@@ -15,10 +15,19 @@ return [
         'user' => [
             'class' => Da\User\Module::class,
         ],
+        'gridview' =>  [
+            'class' => '\kartik\grid\Module'
+        ]
     ],
     'components' => [
         'request' => [
             'csrfParam' => '_csrf-backend',
+            'baseUrl' => '/admin',
+        ],
+        'user' => [
+            'identityClass' => 'common\models\User',
+            'enableAutoLogin' => true,
+            'identityCookie' => ['name' => '_identity-backend', 'httpOnly' => true],
         ],
         'session' => [
             // this is the name of the session cookie used for login on the backend
@@ -36,16 +45,7 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
-        'request' => [
-            'baseUrl' => '/admin',
-        ],
-        'view' => [
-            'theme' => [
-                'pathMap' => [
-                    '@app/views' => '@vendor/hail812/yii2-adminlte3/src/views'
-                ],
-            ],
-        ],
+
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
